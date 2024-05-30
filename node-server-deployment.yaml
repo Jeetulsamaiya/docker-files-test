@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-01-deployment
+  labels:
+    app: test-01
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-01
+  template:
+    metadata:
+      labels:
+        app: test-01
+    spec:
+      containers:
+        - name: test-01-container
+          image: docker.io/jeetulsamaiya/test-01:update-3
+          ports:
+            - containerPort: 3000

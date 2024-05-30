@@ -1,0 +1,7 @@
+FROM ubuntu
+# run a server on port 8000
+WORKDIR /home/jeetul
+RUN apt update && apt install -y iproute2 iputils-ping python3 traceroute wget curl
+COPY local.py local.py
+EXPOSE 8000
+CMD python3 local.py
